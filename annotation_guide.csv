@@ -1,0 +1,12 @@
+﻿Labeling schema used in this workbook,
+,
+option_role,Meaning
+target,The option is the gold answer for the item and represents the intended phenomenon measured by the task family.
+control,The option is a distractor used to test whether the model confuses the target phenomenon with another reading.
+,
+control_type,Meaning
+target,Gold answer option.
+adjacent_pragmatic_force_control,A close but non-target reading that expresses another nearby indirect institutional meaning or pragmatic force.
+literal_or_sincere_control,"A face-value, genuine, or sincerely positive reading of the statement rather than the benchmark target."
+procedural_or_technical_control,"A routine, administrative, procedural, or technical reading that avoids the intended indirect pragmatic force."
+escalated_or_overstated_control,"A reading that overstates the statement into a more direct, immediate, punitive, or otherwise stronger meaning than the target."
