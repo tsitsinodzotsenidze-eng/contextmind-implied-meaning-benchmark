@@ -1,125 +1,67 @@
-
 # ContextMind: Implied Meaning Benchmark
 
 ## Overview
-ContextMind is a benchmark design project focused on a specific but important dimension of AI language understanding: the ability to interpret implied meaning in socially and institutionally structured context. In real communication, especially in economic, policy, and geoeconomic discourse, meaning is often carried not only by what is explicitly said, but also by what is implied, softened, strategically framed, or relationally managed. This makes contextual understanding partly a problem of social cognition, not just text processing. ContextMind is designed around this insight.
 
-More specifically, the benchmark targets a narrow, socially grounded slice of social cognition: the ability to infer implied institutional meaning, speaker intention, and pragmatic force when literal wording is incomplete, softened, or strategically framed. Rather than treating social cognition as a broad or total capacity, the benchmark focuses on one specific evaluative question: whether a model can recognize what a speaker is doing communicatively when the intended meaning is not stated directly on the surface.
+ContextMind is a benchmark design project focused on a specific but important dimension of AI language understanding: the ability to interpret implied meaning in socially and institutionally structured contexts. In many real-world settings, especially in economic, policy, and geoeconomic discourse, meaning is not carried only by what is said directly. It is often softened, implied, strategically framed, or communicated through tone, positioning, and institutional form.
 
-Rather than treating language understanding as simple retrieval or pattern recognition, ContextMind targets a narrower but deeper evaluative question: whether AI systems can infer communicative intent, implication, and pragmatic force when meaning is not directly stated on the surface.
+This project was built around that challenge. Rather than asking only whether a model can retrieve information or identify explicit content, ContextMind asks whether a model can understand what is being meant when language does not fully say everything on the surface.
 
-## Motivation
-Within broader discussions of cognitive abilities, this project is best understood as targeting a narrow, socially grounded slice of social cognition in economic and geoeconomic discourse. It does not aim to measure social cognition in full. Instead, it focuses on whether models can infer intention when literal wording is incomplete, softened, or strategically framed, and whether they can distinguish among related communicative functions such as reassurance, implicit pressure, warning, ambiguity, and institutional irony.
+More specifically, the benchmark focuses on a narrow but important aspect of socially grounded language understanding. It does not attempt to measure social cognition as a whole. Instead, it examines whether models can recognize communicative intent in cases where meaning is indirect, relational, institutionally framed, or strategically managed.
 
-The benchmark therefore treats implied meaning interpretation not as a peripheral language skill, but as part of the socially situated reasoning required for understanding strategically meaningful discourse. ContextMind addresses this evaluation gap by operationalizing implied meaning into a structured benchmark format. The project is grounded in communicative phenomena already recognized in pragmatics, institutional discourse, and the social sciences, including indirect meaning, strategic ambiguity, reassurance, implicit pressure, warning, and related forms of socially situated interpretation.
+## Why It Matters
+
+In many institutional and policy settings, the central difficulty is not identifying the literal meaning of a sentence. It is recognizing what the speaker is actually doing: reassuring, pressuring, warning, distancing, softening, or signaling something without stating it directly.
+
+That kind of understanding matters in economic and geoeconomic discourse, where communication is often careful, indirect, and strategically shaped. A statement may sound neutral on the surface while carrying a clear institutional intention underneath. ContextMind is designed to evaluate whether models can detect that difference.
+
+In that sense, implied meaning is treated here not as a decorative extra, but as part of the real interpretive work required for understanding socially situated discourse.
 
 ## What the Benchmark Tests
-The benchmark is designed to test whether AI systems can correctly infer implied meaning in controlled multiple-choice settings. It targets contextual-pragmatic sensitivity rather than factual recall or direct textual retrieval.
 
-More specifically, the benchmark examines whether models can distinguish among closely related interpretations when the intended meaning depends on:
+ContextMind tests whether models can infer implied meaning in controlled multiple-choice settings. Its focus is contextual-pragmatic sensitivity rather than factual recall or direct retrieval.
 
-- speaker intention
-- indirect institutional language
-- pragmatic force
-- strategic ambiguity
-- reassurance and soft pressure
-- warning framed in neutral or cooperative wording
+More specifically, the benchmark asks whether models can distinguish among closely related interpretations when meaning depends on speaker intention, institutional tone, indirectness, strategic ambiguity, reassurance, soft pressure, or warning framed in neutral language. The goal is not simply to see whether a model arrives at the correct answer, but whether it can separate the intended reading from other interpretations that remain plausible on the surface.
 
 ## Task Families
-The benchmark currently contains seven task families, with 10 items per family:
 
-1. indirect geoeconomic intent
-2. procedural distancing
-3. implicit directive with pressure
-4. strategic ambiguity
-5. implicit strategic warning
-6. institutional irony
-7. face-preserving reassurance
+The benchmark currently includes seven task families: indirect geoeconomic intent, procedural distancing, implicit directive with pressure, strategic ambiguity, implicit strategic warning, institutional irony, and face-preserving reassurance. Each family contains ten items, giving the dataset a total of seventy multiple-choice cases. Together, these families capture different forms of indirect institutional meaning in economic and geoeconomic contexts.
 
-Together, these task families are intended to capture different forms of indirect institutional meaning in economic and geoeconomic contexts.
+## Dataset
 
-## Dataset Structure
-The dataset contains 70 multiple-choice items in total. Each item includes:
+The dataset contains seventy multiple-choice items. Each item includes a context, a statement, a question, four answer options, a gold answer, and the corresponding gold answer text. In addition to the main dataset, the repository includes an option-level annotation file and an annotation guide documenting the labeling scheme.
 
-- context
-- statement
-- question
-- four answer options
-- gold answer
-- gold answer text
-
-The benchmark package also includes:
-
-- an item-level dataset
-- an option-level annotation file
-- an annotation guide documenting the labeling scheme
-
-This structure is intended to support not only benchmark use, but also inspection, auditing, interpretive transparency, and future extension. The final benchmark dataset was compiled through iterative construction and refinement of seven task families and organized into these three components after repeated auditing and cross-verification across spreadsheet, CSV, and benchmark task implementations.
-
-## Annotation Layer
-In addition to the item-level dataset, the benchmark includes an option-level annotation file and an annotation guide documenting the labeling scheme. These materials are not included only for organizational clarity. They are intended to make the benchmark more inspectable and methodologically transparent by showing how answer options are structured across related interpretive categories.
-
-This matters because the benchmark is designed around distinctions among closely related forms of implied institutional meaning. During development, distractors were not treated as incidental wrong answers, but were repeatedly filtered, grouped, checked, and refined as plausible competing interpretations. In many cases, the challenge of the item lies precisely in distinguishing the intended meaning from a nearby but ultimately incorrect reading. The annotation layer therefore helps clarify not only which answer is correct, but also what kind of alternative interpretation each distractor represents.
-
-This strengthens the benchmark in several ways: it improves transparency, supports closer inspection of answer-option design, makes task-family logic easier to audit, and provides a more systematic basis for future comparison, extension, and possible human review.
-
-## Current Status
-At the current stage, the benchmark has been:
-
-- constructed across seven task families
-- iteratively refined
-- cross-checked against working spreadsheet and CSV versions
-- tested in benchmark form
-- organized into a structured dataset package
-
-The project is best understood at this stage as human-grounded and theory-informed rather than formally human-validated at scale. Its human basis lies in theory-guided and domain-informed construction of categories, items, distractors, and gold answers, while broader human-subject validation remains a possible later phase. This framing reflects the benchmark’s grounding in communicative patterns already studied in pragmatics, institutional discourse, and the social sciences, rather than a rushed or overstated validation claim.
-
-## Results
-At the current stage, the benchmark has been implemented and tested in benchmark form across seven task families. The present results should be understood primarily as evidence of executable task construction, internal coherence, and successful benchmark packaging rather than as a final comparative performance study. Initial runs confirm that the tasks can be operationalized, evaluated, and audited in a structured way.
-
-At the same time, the benchmark is designed not merely to record pass rates, but to help reveal differences in contextual-pragmatic sensitivity across models. Its intended value lies in whether it can produce meaningful variation in model interpretation when the correct answer depends on implied meaning rather than explicit wording alone. Broader cross-model comparison, more systematic performance analysis, and stronger claims about discriminative signal remain part of the next stage of development.
-
-## Technical Details
-The benchmark was implemented in Kaggle Benchmarks format as a structured multiple-choice evaluation task set. Each task family was designed around controlled prompts in which the correct answer depends on contextual-pragmatic interpretation rather than factual recall or direct retrieval. The implementation process included prompt construction, answer-option design, gold-answer assignment, and answer extraction logic for model evaluation.
-
-The benchmark package was developed iteratively across notebook implementations, spreadsheet-based drafting, and exported CSV files. Repeated auditing and cross-verification were used to align benchmark code, dataset structure, item wording, distractors, answer-option logic, and gold answers across formats. This process also included practical debugging of evaluation flow and response parsing in order to ensure that benchmark outcomes reflected item interpretation as reliably as possible within the current task design.
-
-## Project Contribution
-The main contribution of ContextMind is not the discovery of these communicative phenomena themselves, but their operationalization into a benchmark for AI evaluation. The project translates socially meaningful forms of indirect interpretation into a controlled format that can help assess whether model performance reflects contextual understanding rather than only surface fluency.
-
-More broadly, the benchmark is intended to contribute to evaluation work at the intersection of language understanding, pragmatic inference, and socially situated reasoning. Its focus is not on open-ended general intelligence claims, but on a specific interpretive capability: recognizing implied institutional meaning in structured contexts where communicative intent is not fully explicit.
-
-## Organizational Affiliation
-Independent researcher.
-
-## Project Type
-Independent benchmark design project developed in a hackathon setting.
+This structure was designed not only for benchmark use, but also for inspection, auditing, and future development. The final dataset was assembled through repeated construction, revision, checking, and cross-verification across spreadsheet, CSV, and benchmark task implementations.
 
 ## Repository Contents
-This repository is intended to include:
 
-- benchmark-related task code
-- dataset files
-- annotation materials
-- benchmark description and supporting documentation
-- fishbone-style benchmark architecture diagram
+The repository currently includes the main benchmark dataset in CSV and XLSX formats, an option-level annotation file, an annotation guide, and project documentation. Together, these materials make the benchmark usable not only as a set of evaluation items, but also as a structured research artifact that can be inspected, reviewed, and extended.
 
-## References and Conceptual Background
-The benchmark is informed by work in pragmatics, discourse analysis, institutional communication, and socially situated interpretation. Its conceptual background is especially relevant to research on implied meaning, speaker intention, indirect communication, and context-sensitive inference in structured discourse. It also draws on broader discussions of strategic language in economic and geoeconomic settings, including speech-act theory and related taxonomies of communicative function.
+## Current Status
 
-A fuller reference list will be added as the repository package is finalized. At the current stage, the benchmark should be understood as conceptually anchored in:
+At this stage, the benchmark has been fully built across seven task families, iteratively refined, cross-checked against working spreadsheet and CSV versions, tested in benchmark form, and organized into a structured dataset package.
 
-- pragmatics and implied meaning
-- institutional discourse and indirect communication
-- social cognition and communicative inference
-- speech-act-oriented taxonomies of communicative function
-- strategic language in economic and geoeconomic contexts
+At this stage, the benchmark is best understood as a human-designed and human-curated research artifact. Its categories, items, distractors, and gold answers were developed through repeated human judgment and careful refinement, with the design shaped by both theory and real-world institutional context. While it has not yet been formally validated through large-scale human-subject testing, it is intended as a strong foundation for later validation, broader comparison across models, and future research development.
+
+## Contribution
+
+The contribution of ContextMind is not that it discovers these communicative phenomena for the first time. Its contribution lies in turning them into a structured benchmark for AI evaluation.
+
+One of the central ideas behind the project is that model understanding should not be judged only by explicit semantic content or factual recall. In many institutional, economic, and geoeconomic settings, the real challenge lies in distinguishing what is intended from what is merely nearby on the surface. ContextMind is built around that problem. It asks whether models can distinguish intended institutional meaning from plausible but ultimately incorrect alternative readings in indirect, strategically framed discourse.
+
+An important part of this design is the use of curated distractors. The incorrect options were not written as arbitrary wrong answers. They were written as nearby plausible interpretations that a model might reasonably confuse with the intended meaning. This is especially important in indirect or strategically framed language, where the challenge is often not retrieving explicit content, but recognizing what is actually meant rather than what only appears close on the surface.
+
+To support this design, the repository also includes an annotation layer. These annotations help show what kind of alternative reading each option represents and make model errors easier to examine in a more structured way. As a result, the benchmark is designed not only to measure whether a model chooses the correct answer, but also to make its mistakes more interpretable for contextual-pragmatic analysis.
+
+Taken together, the task families, curated distractors, and annotation layer make the benchmark more than a simple set of multiple-choice questions. They turn it into a structured framework for examining how models handle indirect institutional meaning, and how they fail when plausible competing interpretations are present.
+
+## Research Positioning
+
+This project was developed from an economics and social-science research perspective, with particular attention to institutional, policy, and geoeconomic discourse. Its emphasis on social cognition reflects the view that meaning in these settings often depends not only on explicit wording, but also on socially situated intention, relational signaling, institutional tone, and pragmatic framing.
+
+For that reason, the benchmark treats implied meaning as part of a broader problem of socially embedded interpretation. It is designed not simply to test language processing in the narrow sense, but to examine whether models can recognize communicative intent in forms of discourse that matter in real-world economic and institutional communication.
 
 ## Future Work
-Possible next steps include:
 
-- broader cross-model comparison
-- more systematic human-subject validation
-- further task-family expansion
-- refinement of annotation protocols
-- pedagogical and interdisciplinary use after additional validation
+The next stage of the project may include broader testing across models, clearer reporting of comparative performance patterns, fuller documentation of annotation categories and distractor types, and later human-subject validation under more structured conditions. After further refinement, the benchmark may also be useful in interdisciplinary teaching and research settings.
+
+At its current stage, ContextMind should be understood as a benchmark design project with a completed dataset package and a clear evaluative logic, intended as a foundation for further testing, analysis, and development.
