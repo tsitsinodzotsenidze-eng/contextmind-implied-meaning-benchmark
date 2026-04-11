@@ -66,6 +66,13 @@ Taken together, the task families, curated distractors, and annotation layer mak
 
 In that sense, the project contributes to the study of social cognition in AI not by claiming to capture the whole domain, but by operationalizing one of its important dimensions: the interpretation of implied, relational, and institutionally embedded communicative intent.
 
+## Benchmark Architecture
+
+![ContextMind Fishbone Diagram](contextmind_fishbone.png)
+
+**Figure 1.** ContextMind benchmark architecture.
+
+
 ## Benchmark Positioning
 
 ContextMind is positioned as a human-curated, domain-informed benchmark design project developed at the intersection of AI evaluation, pragmatics, and social-science analysis. Its emphasis lies in the structured modeling of implied institutional meaning as a focused component of social cognition, rather than in broad claims about general intelligence or social cognition as a whole.
