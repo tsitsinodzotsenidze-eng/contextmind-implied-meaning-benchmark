@@ -44,6 +44,11 @@ The dataset format is meant to support a more structured evaluation of social co
 
 The repository currently includes the main benchmark dataset in CSV and XLSX formats, an option-level annotation file, an annotation guide, and project documentation. Together, these materials make the benchmark usable not only as a set of evaluation items, but also as a structured research artifact that can be inspected, reviewed, and extended.
 
+## Citation / Archive
+
+Archived release (Zenodo DOI, all versions): https://doi.org/10.5281/zenodo.19599943  
+Version DOI (v1.0): https://doi.org/10.5281/zenodo.19599944
+
 ## Current Status
 
 At this stage, the benchmark has been fully built across seven task families, iteratively refined, cross-checked against working spreadsheet and CSV versions, tested in benchmark form, and organized into a structured dataset package.
